@@ -1,12 +1,4 @@
-<% content_for :title, "Editing vault" %>
-
-<h1>Editing vault</h1>
-
-<%= render "form", vault: @vault %>
-
-<br>
-
-<div>
-  <%= link_to "Show this vault", @vault %> |
-  <%= link_to "Back to vaults", vaults_path %>
+<div class="max-w-xl mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Edit Vault</h1>
+  <%= render "form", vault: @vault %>
 </div>

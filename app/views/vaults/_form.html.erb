@@ -1,37 +1,37 @@
-<%= form_with(model: vault) do |form| %>
-  <% if vault.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(vault.errors.count, "error") %> prohibited this vault from being saved:</h2>
+<div class="max-w-xl mx-auto bg-white p-6 rounded shadow space-y-4">
 
-      <ul>
-        <% vault.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+  <%= form_with(model: vault) do |form| %>
+
+    <% if vault.errors.any? %>
+      <div class="bg-red-100 text-red-700 p-3 rounded">
+        <%= vault.errors.full_messages.join(", ") %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :site, class: "block font-medium" %>
+      <%= form.text_field :site, class: "w-full border p-2 rounded" %>
     </div>
+
+    <div>
+      <%= form.label :url, class: "block font-medium" %>
+      <%= form.text_field :url, class: "w-full border p-2 rounded" %>
+    </div>
+
+    <div>
+      <%= form.label :login, class: "block font-medium" %>
+      <%= form.text_field :login, class: "w-full border p-2 rounded" %>
+    </div>
+
+    <div>
+      <%= form.label :password, class: "block font-medium" %>
+      <%= form.text_field :password, class: "w-full border p-2 rounded" %>
+    </div>
+
+    <div>
+      <%= form.submit class: "bg-blue-600 text-white px-4 py-2 rounded" %>
+    </div>
+
   <% end %>
 
-  <div>
-    <%= form.label :site, style: "display: block" %>
-    <%= form.text_field :site %>
-  </div>
-
-  <div>
-    <%= form.label :url, style: "display: block" %>
-    <%= form.text_field :url %>
-  </div>
-
-  <div>
-    <%= form.label :login, style: "display: block" %>
-    <%= form.text_field :login %>
-  </div>
-
-  <div>
-    <%= form.label :password, style: "display: block" %>
-    <%= form.text_field :password %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
