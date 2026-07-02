@@ -1,12 +1,9 @@
 <% if resource.errors.any? %>
-  <div id="error_explanation" data-turbo-temporary>
-    <h2>
-      <%= I18n.t("errors.messages.not_saved",
-                 count: resource.errors.count,
-                 resource: resource.class.model_name.human.downcase)
-       %>
+  <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-4 rounded-md">
+    <h2 class="text-sm font-medium text-red-800">
+      <%= pluralize(resource.errors.count, "error") %> prohibited this account from being saved:
     </h2>
-    <ul>
+    <ul class="mt-2 text-sm text-red-700 list-disc list-inside">
       <% resource.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
